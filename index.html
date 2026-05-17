@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pumpenhofer | Installateur in Klagenfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root {
+    /* Colors */
+    --color-bg: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-text: #0F172A;
+    --color-text-muted: #475569;
+    --color-brand: #1E3A8A;
+    --color-accent: #D97706;
+    --color-accent-hover: #b46205;
+    --color-brand-dark: #0f1d45;
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 1.8vw, 1rem);
+    --text-base: clamp(1rem, 2vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 2.5vw, 1.375rem);
+    --text-xl: clamp(1.375rem, 3vw, 1.75rem);
+    --text-2xl: clamp(1.75rem, 4vw, 2.5rem);
+    --text-3xl: clamp(2.25rem, 5vw, 3.5rem);
+    --text-4xl: clamp(3rem, 7vw, 5rem);
+
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-24: 6rem;
+    --section-py: clamp(4rem, 10vw, 8rem);
+
+    /* Z-Index Stack */
+    --z-base: 0;
+    --z-raised: 10;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 500;
+    --z-modal: 1000;
+    --z-toast: 2000;
+    --z-max: 9000;
+  }
+
+  /* Reset & Base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+    padding-top: 110px; /* Space for fixed header + utility bar */
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  h1 { font-size: var(--text-4xl); font-weight: 800; }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+
+  p { margin-bottom: var(--space-4); }
+  p:last-child { margin-bottom: 0; }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ul { list-style: none; }
+
+  /* Utilities */
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .container { padding: 0 var(--space-8); }
+  }
+
+  .text-muted { color: var(--color-text-muted); }
+  .text-center { text-align: center; }
+
+  /* Icon Alignment Rules */
+  [data-lucide] {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .icon-text,
+  .btn,
+  .contact-row,
+  .footer-contact-item,
+  .check-item,
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    z-index: var(--z-raised);
+    text-align: center;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-surface);
+  }
+
+  .btn-primary:hover, .btn-primary:focus-visible {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+  }
+
+  .btn-outline:hover, .btn-outline:focus-visible {
+    background-color: var(--color-text);
+    color: var(--color-surface);
+  }
+
+  /* Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-accent);
+    color: white;
+    padding: 8px;
+    z-index: var(--z-max);
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* Scroll Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Header & Navigation */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001; /* Literal requirement */
+    background: var(--color-surface);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .utility-bar {
+    background-color: var(--color-brand);
+    color: var(--color-surface);
+    padding: 0.5rem 0;
+    font-size: var(--text-sm);
+  }
+
+  .utility-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .utility-phone {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-family: var(--font-heading);
+  }
+  .utility-phone:hover { color: var(--color-accent-hover); }
+
+  .nav-container {
+    position: relative;
+    height: 70px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-container .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-brand);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .desktop-nav ul {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .desktop-nav a {
+    font-weight: 500;
+    font-size: var(--text-sm);
+  }
+
+  .desktop-nav a:hover {
+    color: var(--color-accent);
+  }
+
+  /* Mobile Navigation */
+  .nav-toggle {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002; /* Literal requirement */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-brand);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000; /* Literal requirement */
+    background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .mobile-nav a {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-brand);
+    padding: 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-nav { display: none !important; }
+  }
+
+  @media (min-width: 769px) {
+    .nav-toggle { display: none !important; pointer-events: none; }
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: var(--space-12) 0 var(--section-py);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero { min-height: calc(100vh - 110px); display: flex; align-items: center; padding: 0; }
+    .hero-grid { grid-template-columns: 1.2fr 1fr; gap: var(--space-16); }
+  }
+
+  .hero-content h1 {
+    margin-bottom: var(--space-6);
+    color: var(--color-brand);
+  }
+
+  .hero-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .hero-image {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
+  /* Services Grid */
+  .services {
+    padding: var(--section-py) 0;
+    background-color: var(--color-bg);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .section-header h2 {
+    color: var(--color-brand);
+    margin-bottom: var(--space-4);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .service-card {
+    background: var(--color-surface);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .service-img-wrap {
+    height: 240px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .service-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover .service-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .service-content {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .service-content h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+    color: var(--color-brand);
+  }
+
+  .service-content p {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+    flex-grow: 1;
+  }
+
+  .service-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+  }
+  .service-link:hover { color: var(--color-accent-hover); }
+
+  /* About Section - Full Bleed Split */
+  .about {
+    background-color: var(--color-brand);
+    color: var(--color-surface);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .about-image {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-content {
+    padding: var(--section-py) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-content { padding: var(--section-py) var(--space-8); }
+  }
+
+  @media (min-width: 1024px) {
+    .about-content { padding: var(--section-py) var(--space-12); max-width: 640px; }
+  }
+
+  .about-content h2 {
+    color: var(--color-surface);
+    margin-bottom: var(--space-6);
+  }
+
+  .about-content p {
+    color: rgba(255,255,255,0.85);
+    font-size: var(--text-lg);
+  }
+
+  /* Checklist Section */
+  .checklist {
+    padding: var(--section-py) 0;
+    background-color: var(--color-surface);
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .checklist-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .check-item {
+    padding: var(--space-4);
+    background: var(--color-bg);
+    border-radius: 4px;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .check-icon {
+    color: var(--color-accent);
+  }
+
+  /* Contact / CTA Section */
+  .contact-cta {
+    padding: var(--section-py) 0;
+    background-color: var(--color-bg);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 1024px) {
+    .contact-grid { grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+  }
+
+  .contact-info h2 {
+    color: var(--color-brand);
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-info p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .contact-row {
+    font-size: var(--text-lg);
+    font-weight: 500;
+  }
+
+  .contact-row i {
+    color: var(--color-accent);
+  }
+
+  .map-placeholder {
+    background: #e2e8f0;
+    height: 400px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-6);
+    border: 1px solid #cbd5e1;
+  }
+
+  /* Footer */
+  .site-footer {
+    background-color: var(--color-brand-dark);
+    color: rgba(255,255,255,0.7);
+    padding: clamp(4rem, 8vw, 7rem) 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .footer-brand .logo {
+    color: var(--color-surface);
+    margin-bottom: var(--space-4);
+    display: block;
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .social-links a {
+    color: var(--color-surface);
+    transition: color 0.2s;
+  }
+
+  .social-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-heading {
+    color: var(--color-surface);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-contact-item {
+    margin-bottom: var(--space-3);
+    color: rgba(255,255,255,0.7);
+  }
+  
+  .footer-contact-item i { 
+    color: var(--color-accent); 
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+
+  .footer-legal-links {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .footer-legal-links button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+  }
+
+  .footer-legal-links button:hover {
+    color: var(--color-accent);
+  }
+
+  /* Modals */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-card {
+    background: var(--color-surface);
+    width: 100%;
+    max-width: 480px;
+    border-radius: 4px;
+    padding: var(--space-8);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .modal-backdrop.is-open .modal-card {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--color-accent); }
+
+  .modal-title {
+    color: var(--color-brand);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-2xl);
+  }
+
+  .modal-body {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .modal-body a {
+    color: var(--color-brand);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  /* Cookie Banner */
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    padding: var(--space-6);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    z-index: var(--z-toast);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .cookie-banner.is-visible {
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    .cookie-banner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) var(--space-8);
+    }
+  }
+
+  .cookie-text { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 800px; }
+  .cookie-actions { display: flex; gap: var(--space-3); flex-shrink: 0; }
+</style>
+</head>
+<body>
+<!-- DEMO NOTICE BANNER - benedictjaros.com -->
+<style>
+#__demo_spacer{display:block;}
+#__demo_notice,#__demo_notice *{box-sizing:border-box;margin:0;padding:0;}
+#__demo_notice{
+  position:fixed;top:0;left:0;right:0;z-index:99999;
+  background:rgba(9,9,11,.97);
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+#__demo_inner{
+  max-width:1280px;margin:0 auto;
+  padding:0 44px 0 18px;min-height:38px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+#__demo_dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:#f5c842;box-shadow:0 0 7px rgba(245,200,66,.55);}
+#__demo_label{color:#f5c842;font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;flex-shrink:0;}
+#__demo_divider{color:rgba(255,255,255,.15);font-size:12px;flex-shrink:0;}
+#__demo_text{color:rgba(255,255,255,.45);font-size:11.5px;line-height:1.45;flex:1 1 160px;}
+#__demo_links{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+#__demo_links a{
+  color:rgba(255,255,255,.38);font-size:11px;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  transition:color .15s,border-color .15s;white-space:nowrap;
+}
+#__demo_links a:hover{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.4);}
+#__demo_link_sep{color:rgba(255,255,255,.15);font-size:10px;}
+#__demo_close{
+  position:absolute;right:0;top:0;bottom:0;width:40px;
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.28);font-size:16px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  transition:color .15s;
+}
+#__demo_close:hover{color:rgba(255,255,255,.7);}
+@media(max-width:560px){
+  #__demo_inner{padding:7px 44px 7px 14px;gap:6px;}
+  #__demo_text{font-size:11px;flex:1 1 100%;order:3;}
+  #__demo_dot,#__demo_label{order:1;}
+  #__demo_divider{order:2;}
+  #__demo_links{order:4;}
+}
+</style>
+<div id="__demo_spacer"></div>
+<div id="__demo_notice" role="banner" aria-label="Demo notice">
+  <div id="__demo_inner">
+    <span id="__demo_dot"></span>
+    <span id="__demo_label">Demo</span>
+    <span id="__demo_divider">/</span>
+    <span id="__demo_text">Unofficial remake &mdash; not the real website. All content &amp; trademarks belong to their owners.</span>
+    <div id="__demo_links">
+      <a href="https://benedictjaros.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+      <span id="__demo_link_sep">&middot;</span>
+      <a href="https://benedictjaros.com/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+    </div>
+  </div>
+  <button id="__demo_close" aria-label="Close demo notice">&#x2715;</button>
+</div>
+<script>
+(function () {
+  var spacer = document.getElementById('__demo_spacer');
+  var b = document.getElementById('__demo_notice');
+  var x = document.getElementById('__demo_close');
+  if (!b || !spacer) return;
+  function sync() { spacer.style.height = b.offsetHeight + 'px'; }
+  function hide() {
+    b.style.display = 'none'; spacer.style.height = '0';
+    try { sessionStorage.setItem('__demo_closed', '1'); } catch (e) {}
+  }
+  try { if (sessionStorage.getItem('__demo_closed')) { b.style.display = 'none'; spacer.style.height = '0'; return; } } catch (e) {}
+  sync();
+  window.addEventListener('resize', function () { if (b.style.display !== 'none') sync(); });
+  if (x) x.addEventListener('click', hide);
+}());
+</script>
+
+
+<a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+<header class="site-header">
+  <div class="utility-bar">
+    <div class="container">
+      <span class="icon-text"><i data-lucide="alert-circle" width="16" height="16"></i> Notdienst in Klagenfurt</span>
+      <a href="tel:+43463511140" class="utility-phone icon-text"><i data-lucide="phone" width="16" height="16"></i> +43 463 511140</a>
+    </div>
+  </div>
+
+  <div class="nav-container">
+    <div class="container">
+      <a href="#" class="logo">Pumpenhofer</a>
+      
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      
+      <button class="nav-toggle" aria-expanded="false" aria-label="Menü öffnen" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <ul>
+      <li><a href="#leistungen" class="mobile-link">Leistungen</a></li>
+      <li><a href="#ueber-uns" class="mobile-link">Über uns</a></li>
+      <li><a href="#kontakt" class="mobile-link">Kontakt</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main id="main">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <h1>Ing. Hubert Hofer GmbH – Installateur in Klagenfurt in Kärnten</h1>
+        <p>Wir übernehmen Installationen jeglicher Art, egal ob Gastherme, Wasserrohr, Badezimmersanierung oder neue Heizung.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary trigger-modal" data-modal="terminModal">
+            Termin vereinbaren <i data-lucide="arrow-right"></i>
+          </button>
+          <a href="#leistungen" class="btn btn-outline">Unsere Leistungen</a>
+        </div>
+      </div>
+      <div class="hero-image reveal" style="--i:1">
+        <img src="https://www.pumpen-hofer.at/uploads/d7zyp7z8/768x0_640x0/home_pic_1.jpg" alt="Modernes Badezimmer mit freistehender Wanne">
+      </div>
+    </div>
+  </section>
+
+  <section id="leistungen" class="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Unsere Kernkompetenzen</h2>
+        <p class="text-muted">Von der Reparatur bis zur kompletten Neuinstallation – wir sind Ihr verlässlicher Partner für Haustechnik.</p>
+      </div>
+      
+      <div class="services-grid">
+        <article class="service-card reveal" style="--i:0">
+          <div class="service-img-wrap">
+            <img src="https://www.pumpen-hofer.at/uploads/s7oYr4MR/768x0_640x0/teaser_heizung.jpg" alt="Heizungstechnik Installation" loading="lazy">
+          </div>
+          <div class="service-content">
+            <h3>Heizungstechnik</h3>
+            <p>Profitieren Sie von unserer langjährigen Erfahrung mit Heizanlagen. Wir beraten Sie herstellerunabhängig zur optimalen Lösung für Ihr Zuhause.</p>
+            <a href="#kontakt" class="service-link">Weiter <i data-lucide="arrow-right" width="16" height="16"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" style="--i:1">
+          <div class="service-img-wrap">
+            <img src="https://www.pumpen-hofer.at/uploads/pVFaG6KM/768x0_640x0/teaser_bad.jpg" alt="Badsanierung" loading="lazy">
+          </div>
+          <div class="service-content">
+            <h3>Badsanierung</h3>
+            <p>Vom alten Bad zur Wellnessoase. Wir planen und realisieren Ihr neues Badezimmer komplett aus einer Hand – termingerecht und sauber.</p>
+            <a href="#kontakt" class="service-link">Weiter <i data-lucide="arrow-right" width="16" height="16"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" style="--i:2">
+          <div class="service-img-wrap">
+            <img src="https://www.pumpen-hofer.at/uploads/ETelCFZl/768x0_640x0/teaser_pumpe.jpg" alt="Pumpentechnik" loading="lazy">
+          </div>
+          <div class="service-content">
+            <h3>Pumpen</h3>
+            <p>Unsere Expertise für Pumpen ist inzwischen so bekannt, dass wir auch komplexe Industrie- und Spezialpumpen warten und reparieren.</p>
+            <a href="#kontakt" class="service-link">Weiter <i data-lucide="arrow-right" width="16" height="16"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber-uns" class="about">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="https://www.pumpen-hofer.at/uploads/Tz5zB3i2/768x0_640x0/home_pic_2.jpg" alt="Meisterinstallateur bei der Arbeit an Rohren" loading="lazy">
+      </div>
+      <div class="about-content reveal" style="--i:1">
+        <h2>Gute Beratung und zuverlässige Ausführung vom Meisterinstallateur</h2>
+        <p>Installateur Hofer und sein Team sorgen dafür, dass Sie gut beraten werden. Ob Notfall oder geplantes Großprojekt – wir legen Wert auf höchste handwerkliche Präzision, transparente Kosten und Pünktlichkeit. Vertrauen Sie auf jahrzehntelange Erfahrung in Kärnten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="checklist">
+    <div class="container">
+      <h3 class="text-center reveal">Unsere Leistungen im Überblick</h3>
+      <div class="checklist-grid reveal" style="--i:1">
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Gas-, Wasser- und Heizungsinstallationen</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Badsanierung & Wellnessoasen</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Reparatur und Tausch von Gasthermen</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Wärmepumpen & Solaranlagen</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Fußbodenheizungen</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Wasseraufbereitung & Entkalkung</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Rohrbruchbehebung & Leckortung</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Verkauf & Reparatur von Pumpen</span></div>
+        <div class="check-item"><i data-lucide="check-circle-2" class="check-icon"></i> <span>Notdienst für Bestandskunden</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact-cta">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <h2>Haben Sie Fragen?</h2>
+        <p>Oder möchten Sie einen Termin vereinbaren? Nehmen Sie Kontakt mit uns auf. Wir sind gerne für Sie da.</p>
+        
+        <div class="contact-details">
+          <div class="contact-row">
+            <i data-lucide="phone"></i>
+            <a href="tel:+43463511140">+43 463 511140</a>
+          </div>
+          <div class="contact-row">
+            <i data-lucide="mail"></i>
+            <a href="mailto:office@pumpen-hofer.at">office@pumpen-hofer.at</a>
+          </div>
+          <div class="contact-row">
+            <i data-lucide="map-pin"></i>
+            <span>Musterstraße 12, 9020 Klagenfurt</span>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary trigger-modal" data-modal="terminModal">Termin anfragen</button>
+      </div>
+      
+      <div class="contact-map reveal" style="--i:1">
+        <div class="map-placeholder">
+          <i data-lucide="map" width="48" height="48" style="color: var(--color-brand); margin-bottom: 1rem;"></i>
+          <h3 style="color: var(--color-brand); margin-bottom: 0.5rem; font-size: var(--text-lg);">Interaktive Karte</h3>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 1rem;">Bitte akzeptieren Sie die Cookies, um Google Maps zu laden, oder klicken Sie hier, um die Karte manuell zu aktivieren.</p>
+          <button class="btn btn-outline trigger-modal" data-modal="mapModal">Karte laden</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">Pumpenhofer</span>
+        <p style="font-size: var(--text-sm); margin-bottom: var(--space-4);">Ihr zuverlässiger Meisterinstallateur für Heizung, Bad und Pumpen in Klagenfurt und ganz Kärnten.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook" width="20" height="20"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram" width="20" height="20"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-contact">
+        <h4 class="footer-heading">Kontakt</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="map-pin" width="18" height="18"></i>
+          <span>Ing. Hubert Hofer GmbH, Musterstraße 12, 9020 Klagenfurt</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" width="18" height="18"></i>
+          <a href="tel:+43463511140">+43 463 511140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" width="18" height="18"></i>
+          <a href="mailto:office@pumpen-hofer.at">office@pumpen-hofer.at</a>
+        </div>
+      </div>
+      
+      <div class="footer-hours">
+        <h4 class="footer-heading">Öffnungszeiten</h4>
+        <ul class="footer-list" style="font-size: var(--text-sm);">
+          <li>Montag - Donnerstag: 07:30 - 12:00 & 13:00 - 16:30</li>
+          <li>Freitag: 07:30 - 12:00</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="copyright">
+        © 2026 Ing. Hubert Hofer GmbH — All original content, images & trademarks are property of their respective owners. Website rebuilt by Benedict Jaros.
+      </div>
+      <div class="footer-legal-links">
+        <button class="trigger-modal" data-modal="legalModal">Impressum</button>
+        <button class="trigger-modal" data-modal="legalModal">Datenschutz</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modals -->
+<div class="modal-backdrop" id="terminModal" role="dialog" aria-modal="true" aria-labelledby="terminTitle">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Schließen"><i data-lucide="x"></i></button>
+    <h2 class="modal-title" id="terminTitle">Termin vereinbaren</h2>
+    <p class="modal-body">This feature will be live once the website is launched and configured. Contact us in the meantime — we'd love to hear from you.</p>
+    <button class="btn btn-primary modal-close-btn">Schließen</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="mapModal" role="dialog" aria-modal="true" aria-labelledby="mapTitle">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Schließen"><i data-lucide="x"></i></button>
+    <h2 class="modal-title" id="mapTitle">Karte laden</h2>
+    <p class="modal-body">This feature will be live once the website is launched and configured. Contact us in the meantime — we'd love to hear from you.</p>
+    <button class="btn btn-primary modal-close-btn">Schließen</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Schließen"><i data-lucide="x"></i></button>
+    <h2 class="modal-title" id="legalTitle">Rechtliche Hinweise</h2>
+    <p class="modal-body">Diese Website ist ein Demo-Remake und wurde nicht von oder für das Unternehmen erstellt. Die Inhalte dienen ausschließlich Demonstrationszwecken. Für unsere eigenen rechtlichen Informationen:</p>
+    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+      <a href="https://benedictjaros.com/impressum" target="_blank">Impressum</a>
+      <a href="https://benedictjaros.com/datenschutz" target="_blank">Datenschutz</a>
+    </div>
+    <button class="btn btn-primary modal-close-btn">Verstanden</button>
+  </div>
+</div>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">Wir verwenden Cookies, um die grundlegende Funktionalität der Website sicherzustellen und Ihr Erlebnis zu verbessern. Sie können für jede Kategorie wählen, ob Sie sich an- oder abmelden möchten.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-outline" id="cookieDecline" style="padding: 0.5rem 1rem; font-size: 0.75rem;">Ablehnen</button>
+    <button class="btn btn-primary" id="cookieAccept" style="padding: 0.5rem 1rem; font-size: 0.75rem;">Akzeptieren</button>
+  </div>
+</div>
+
+<script>
+  // Init Icons
+  lucide.createIcons();
+
+  // Mobile Menu Logic
+  const navToggle = document.getElementById('navToggle');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    navToggle.setAttribute('aria-expanded', isMenuOpen);
+    
+    if (isMenuOpen) {
+      mobileOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      navToggle.setAttribute('aria-label', 'Menü schließen');
+    } else {
+      mobileOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      navToggle.setAttribute('aria-label', 'Menü öffnen');
+    }
+  }
+
+  navToggle.addEventListener('click', toggleMenu);
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if(isMenuOpen) toggleMenu();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) toggleMenu();
+  });
+
+  // Scroll Reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Modal Logic
+  const modalTriggers = document.querySelectorAll('.trigger-modal');
+  const modals = document.querySelectorAll('.modal-backdrop');
+  const closeBtns = document.querySelectorAll('.modal-close, .modal-close-btn');
+
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if(modal) {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeAllModals() {
+    modals.forEach(modal => modal.classList.remove('is-open'));
+    if(!isMenuOpen) document.body.style.overflow = '';
+  }
+
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(trigger.dataset.modal);
+    });
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', closeAllModals);
+  });
+
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeAllModals();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllModals();
+  });
+
+  // Cookie Banner Logic
+  const cookieBanner = document.getElementById('cookieBanner');
+  const btnAccept = document.getElementById('cookieAccept');
+  const btnDecline = document.getElementById('cookieDecline');
+
+  if (!localStorage.getItem('cookie_consent')) {
+    setTimeout(() => {
+      cookieBanner.classList.add('is-visible');
+    }, 1000);
+  }
+
+  function handleCookie(choice) {
+    localStorage.setItem('cookie_consent', choice);
+    cookieBanner.classList.remove('is-visible');
+  }
+
+  btnAccept.addEventListener('click', () => handleCookie('accepted'));
+  btnDecline.addEventListener('click', () => handleCookie('declined'));
+
+</script>
+</body>
+</html>
